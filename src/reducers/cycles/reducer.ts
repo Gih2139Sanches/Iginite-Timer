@@ -15,7 +15,12 @@ interface CyclesState {
   activeCycleId: string | null
 }
 
-export function cyclesReducer(state: CyclesState, action: any) {
+type Action =
+  | { type: ActionTypes.ADD_NEW_CYCLE; payload: { newCycle: Cycle } }
+  | { type: ActionTypes.INTERRUPT_CURRENT_CYCLE }
+  | { type: ActionTypes.MARK_CURRENT_CYCLE_AS_FINISHED }
+
+export function cyclesReducer(state: CyclesState, action: Action) {
   switch (action.type) {
     case ActionTypes.ADD_NEW_CYCLE:
       return produce(state, (draft) => {
