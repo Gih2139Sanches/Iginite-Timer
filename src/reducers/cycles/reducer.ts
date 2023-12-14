@@ -15,7 +15,7 @@ interface CyclesState {
   activeCycleId: string | null
 }
 
-type Action =
+export type Action =
   | { type: ActionTypes.ADD_NEW_CYCLE; payload: { newCycle: Cycle } }
   | { type: ActionTypes.INTERRUPT_CURRENT_CYCLE }
   | { type: ActionTypes.MARK_CURRENT_CYCLE_AS_FINISHED }
